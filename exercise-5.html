@@ -14,71 +14,71 @@
 </style>
 <script language="javascript">
 function effect1(){
-	var check1 = document.form1.color;
-	var childCheck = document.form1.colorChild;
-	if(check1.checked == true){
-		document.getElementById("colors").style.display = "block";
-		for(i=0; i<=childCheck.length; i++){
-			childCheck[i].checked = true;
-		}
-	}
-	else {
-		document.getElementById("colors").style.display = "none";
-		for(i=0; i<=childCheck.length; i++){
-			childCheck[i].checked = false;
-		}
-	}
+  var check1 = document.form1.color;
+  var childCheck = document.form1.colorChild;
+  if(check1.checked == true){
+    document.getElementById("colors").style.display = "block";
+    for(i=0; i<=childCheck.length; i++){
+      childCheck[i].checked = true;
+    }
+  }
+  else {
+    document.getElementById("colors").style.display = "none";
+    for(i=0; i<=childCheck.length; i++){
+      childCheck[i].checked = false;
+    }
+  }
 }
 
 function effect2(){
-	var check1 = document.form1.drink;
-	var childCheck = document.form1.drinkChild;
-	if(check1.checked == true){
-		document.getElementById("drinks").style.display = "block";
-		for(i=0; i<=childCheck.length; i++){
-			childCheck[i].checked = true;
-		}
-	}
-	else {
-		document.getElementById("drinks").style.display = "none";
-		for(i=0; i<=childCheck.length; i++){
-			childCheck[i].checked = false;
-		}
-	}
+  var check1 = document.form1.drink;
+  var childCheck = document.form1.drinkChild;
+  if(check1.checked == true){
+    document.getElementById("drinks").style.display = "block";
+    for(i=0; i<=childCheck.length; i++){
+      childCheck[i].checked = true;
+    }
+  }
+  else {
+    document.getElementById("drinks").style.display = "none";
+    for(i=0; i<=childCheck.length; i++){
+      childCheck[i].checked = false;
+    }
+  }
 }
 
 function effect3(){
-	var check1 = document.form1.movie;
-	var childCheck = document.form1.movieChild;
-	if(check1.checked == true){
-		document.getElementById("movies").style.display = "block";
-		for(i=0; i<=childCheck.length; i++){
-			childCheck[i].checked = true;
-		}
-	}
-	else {
-		document.getElementById("movies").style.display = "none";
-		for(i=0; i<=childCheck.length; i++){
-			childCheck[i].checked = false;
-		}
-	}
+  var check1 = document.form1.movie;
+  var childCheck = document.form1.movieChild;
+  if(check1.checked == true){
+    document.getElementById("movies").style.display = "block";
+    for(i=0; i<=childCheck.length; i++){
+      childCheck[i].checked = true;
+    }
+  }
+  else {
+    document.getElementById("movies").style.display = "none";
+    for(i=0; i<=childCheck.length; i++){
+      childCheck[i].checked = false;
+    }
+  }
 }
 
 function effect4(){
-	var check1 = document.form1.bike;
-	var childCheck = document.form1.bikeChild;
-	if(check1.checked == true){
-		document.getElementById("bikes").style.display = "block";
-		for(i=0; i<=childCheck.length; i++){
-			childCheck[i].checked = true;
-		}
-	}
-	else {
-		document.getElementById("bikes").style.display = "none";
-		for(i=0; i<=childCheck.length; i++){
-			childCheck[i].checked = false;
-		}
-	}
+  var check1 = document.form1.bike;
+  var childCheck = document.form1.bikeChild;
+  if(check1.checked == true){
+    document.getElementById("bikes").style.display = "block";
+    for(i=0; i<=childCheck.length; i++){
+      childCheck[i].checked = true;
+    }
+  }
+  else {
+    document.getElementById("bikes").style.display = "none";
+    for(i=0; i<=childCheck.length; i++){
+      childCheck[i].checked = false;
+    }
+  }
 }
 </script>
 </head>
@@ -86,36 +86,36 @@ function effect4(){
 <body>
 <form name="form1">
 <div id="container">
-	<ul id="options">
-		<li><input type="checkbox" name="color" onchange="effect1()" /> Colors
-			<ul id="colors" style="display:none;">
-				<li><input type="checkbox" name="colorChild" /> Red</li>
-				<li><input type="checkbox" name="colorChild" /> Yellow</li>
-				<li><input type="checkbox" name="colorChild" /> Green</li>
-				<li><input type="checkbox" name="colorChild" /> Blue</li>
-			</ul>
-		</li>
-		<li><input type="checkbox" name="drink" onchange="effect2()" /> Drinks
-			<ul id="drinks" style="display:none;">
-				<li><input type="checkbox" name="drinkChild" /> Coke</li>
-				<li><input type="checkbox" name="drinkChild" /> Pepsi</li>
-				<li><input type="checkbox" name="drinkChild" /> Dew</li>
-			</ul>
-		</li>
-		<li><input type="checkbox" name="movie" onchange="effect3()" /> Movies
-			<ul id="movies" style="display:none;">
-				<li><input type="checkbox" name="movieChild" /> Darr</li>
-				<li><input type="checkbox" name="movieChild" /> Sir</li>
-			</ul>
-		</li>
-		<li><input type="checkbox" name="bike" onchange="effect4()" /> Bikes
-			<ul id="bikes" style="display:none;">
-				<li><input type="checkbox" name="bikeChild" /> V-Rod</li>
-				<li><input type="checkbox" name="bikeChild" /> Pulsar</li>
-				<li><input type="checkbox" name="bikeChild" /> CBZ</li>
-			</ul>
-		</li>
-	</ul>
+  <ul id="options">
+    <li><input type="checkbox" name="color" onchange="effect1()" /> Colors
+      <ul id="colors" style="display:none;">
+        <li><input type="checkbox" name="colorChild" /> Red</li>
+        <li><input type="checkbox" name="colorChild" /> Yellow</li>
+        <li><input type="checkbox" name="colorChild" /> Green</li>
+        <li><input type="checkbox" name="colorChild" /> Blue</li>
+      </ul>
+    </li>
+    <li><input type="checkbox" name="drink" onchange="effect2()" /> Drinks
+      <ul id="drinks" style="display:none;">
+        <li><input type="checkbox" name="drinkChild" /> Coke</li>
+        <li><input type="checkbox" name="drinkChild" /> Pepsi</li>
+        <li><input type="checkbox" name="drinkChild" /> Dew</li>
+      </ul>
+    </li>
+    <li><input type="checkbox" name="movie" onchange="effect3()" /> Movies
+      <ul id="movies" style="display:none;">
+        <li><input type="checkbox" name="movieChild" /> Darr</li>
+        <li><input type="checkbox" name="movieChild" /> Sir</li>
+      </ul>
+    </li>
+    <li><input type="checkbox" name="bike" onchange="effect4()" /> Bikes
+      <ul id="bikes" style="display:none;">
+        <li><input type="checkbox" name="bikeChild" /> V-Rod</li>
+        <li><input type="checkbox" name="bikeChild" /> Pulsar</li>
+        <li><input type="checkbox" name="bikeChild" /> CBZ</li>
+      </ul>
+    </li>
+  </ul>
 </div>
 </form>
 </body>
