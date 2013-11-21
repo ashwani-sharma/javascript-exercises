@@ -80,6 +80,12 @@ function effect4(){
     }
   }
 }
+
+
+function CheckEffect(){
+  var check1 = document.form1.checkOptions;
+  var childCheck = document.form1.childOptions;
+}
 </script>
 </head>
 
@@ -87,32 +93,32 @@ function effect4(){
 <form name="form1">
 <div id="container">
   <ul id="options">
-    <li><input type="checkbox" name="color" onchange="effect1()" /> Colors
+    <li><input type="checkbox" name="checkOptions" class="checkOptions" onchange="CheckEffect()" /> Colors
       <ul id="colors" style="display:none;">
-        <li><input type="checkbox" name="colorChild" /> Red</li>
-        <li><input type="checkbox" name="colorChild" /> Yellow</li>
-        <li><input type="checkbox" name="colorChild" /> Green</li>
-        <li><input type="checkbox" name="colorChild" /> Blue</li>
+        <li><input type="checkbox" name="childOptions" /> Red</li>
+        <li><input type="checkbox" name="childOptions" /> Yellow</li>
+        <li><input type="checkbox" name="childOptions" /> Green</li>
+        <li><input type="checkbox" name="childOptions" /> Blue</li>
       </ul>
     </li>
-    <li><input type="checkbox" name="drink" onchange="effect2()" /> Drinks
+    <li><input type="checkbox" name="checkOptions" class="checkOptions" onchange="CheckEffect()" /> Drinks
       <ul id="drinks" style="display:none;">
-        <li><input type="checkbox" name="drinkChild" /> Coke</li>
-        <li><input type="checkbox" name="drinkChild" /> Pepsi</li>
-        <li><input type="checkbox" name="drinkChild" /> Dew</li>
+        <li><input type="checkbox" name="childOptions" /> Coke</li>
+        <li><input type="checkbox" name="childOptions" /> Pepsi</li>
+        <li><input type="checkbox" name="childOptions" /> Dew</li>
       </ul>
     </li>
-    <li><input type="checkbox" name="movie" onchange="effect3()" /> Movies
+    <li><input type="checkbox" name="checkOptions" class="checkOptions" onchange="CheckEffect()" /> Movies
       <ul id="movies" style="display:none;">
-        <li><input type="checkbox" name="movieChild" /> Darr</li>
-        <li><input type="checkbox" name="movieChild" /> Sir</li>
+        <li><input type="checkbox" name="childOptions" /> Darr</li>
+        <li><input type="checkbox" name="childOptions" /> Sir</li>
       </ul>
     </li>
-    <li><input type="checkbox" name="bike" onchange="effect4()" /> Bikes
+    <li><input type="checkbox" name="checkOptions" class="checkOptions" onchange="CheckEffect()" /> Bikes
       <ul id="bikes" style="display:none;">
-        <li><input type="checkbox" name="bikeChild" /> V-Rod</li>
-        <li><input type="checkbox" name="bikeChild" /> Pulsar</li>
-        <li><input type="checkbox" name="bikeChild" /> CBZ</li>
+        <li><input type="checkbox" name="childOptions" /> V-Rod</li>
+        <li><input type="checkbox" name="childOptions" /> Pulsar</li>
+        <li><input type="checkbox" name="childOptions" /> CBZ</li>
       </ul>
     </li>
   </ul>
