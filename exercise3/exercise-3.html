@@ -1,0 +1,52 @@
+<!--Exercise for checking only 3 checkboxes from multiple checkboxes-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Exercise 3</title>
+
+<link rel="stylesheet" type="text/css" href="css/exercise3.css" />
+<script language="javascript" src="js/exercise3.js"></script>
+
+</head>
+
+<body>
+<form name="form1" method="post" id="dayTable">
+  <table width="300" border="0" cellpadding="0" cellspacing="0" class="brdr">
+    <tr>
+      <td width="50"><input type="checkbox" value="Sunday" name="slave" id="sunday" class="weekdays" onchange="Days.checkLimit(this)" /></td>
+      <td><label for="6">Sunday</label></td>
+    </tr>
+    <tr>
+      <td width="50"><input type="checkbox" value="Monday" name="slave" id="monday" class="weekdays" onchange="Days.checkLimit(this)" /></td>
+      <td><label for="0">Monday</label></td>
+    </tr>
+    <tr>
+      <td width="50"><input type="checkbox" value="Wednesday" name="slave" id="wednesday" class="weekdays" onchange="Days.checkLimit(this)" /></td>
+      <td><label for="2">Wednesday</label></td>
+    </tr>
+    <tr>
+      <td width="50"><input type="checkbox" value="Thursday" name="slave" id="thursday" class="weekdays" onchange="Days.checkLimit(this)" /></td>
+      <td><label for="3">Thursday</label></td>
+    </tr>
+    <tr>
+      <td width="50"><input type="checkbox" value="Tuesday" name="slave" id="tuesday" class="weekdays" onchange="Days.checkLimit(this)" /></td>
+      <td><label for="1">Tuesday</label></td>
+    </tr>
+    <tr>
+      <td width="50"><input type="checkbox" value="Friday" name="slave" id="friday" class="weekdays" onchange="Days.checkLimit(this)" /></td>
+      <td><label for="4">Friday</label></td>
+    </tr>
+    <tr>
+      <td width="50"><input type="checkbox" value="Saturday" name="slave" id="saturday" class="weekdays" onchange="Days.checkLimit(this)" /></td>
+      <td><label for="5">Saturday</label></td>
+    </tr>
+    <tr>
+      <td width="80"> <input id="none" type="checkbox" name="none" onclick="Days.removeChecked()"/></td>
+      <td><strong>None</strong></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
