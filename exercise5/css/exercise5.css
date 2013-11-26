@@ -1,0 +1,5 @@
+#container { min-width:200px; height:100px; float:left; padding:5px 10px; border:solid 1px #cacaca; overflow-x:hidden; overflow-y:scroll; }
+#container ul { list-style:none; margin:0px; padding:0px; }
+#container li { list-style:none; margin:0px; padding:3px 0px 0px; }
+#container li ul { list-style:none; margin:0px; padding:0px 0px 0px; }
+#container li li { list-style:none; margin:0px 0px 0px 25px; padding:0px 0px 0px; color:#c00000; }

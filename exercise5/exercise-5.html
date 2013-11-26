@@ -1,0 +1,50 @@
+<!--Exercise for show/hide sections using checking/unchecking checkbox-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Exercise-5</title>
+
+<link rel="stylesheet" type="text/css" href="css/exercise5.css" />
+<script language="javascript" src="js/exercise5.js"></script>
+
+</head>
+
+<body>
+<form name="form1">
+<div id="container">
+  <ul id="options">
+    <li><input type="checkbox" id="colors" name="checkOptions" class="checkOptions" onclick="CheckEffect(this)" /> Colors
+      <ul id="colorsBox" style="display:none;">
+        <li><input type="checkbox" name="colorsBox" /> Red</li>
+        <li><input type="checkbox" name="colorsBox" /> Yellow</li>
+        <li><input type="checkbox" name="colorsBox" /> Green</li>
+        <li><input type="checkbox" name="colorsBox" /> Blue</li>
+      </ul>
+    </li>
+    <li><input type="checkbox" id="drinks" name="checkOptions" class="checkOptions" onclick="CheckEffect(this)" /> Drinks
+      <ul id="drinksBox" style="display:none;">
+        <li><input type="checkbox" name="drinksBox" /> Coke</li>
+        <li><input type="checkbox" name="drinksBox" /> Pepsi</li>
+        <li><input type="checkbox" name="drinksBox" /> Dew</li>
+      </ul>
+    </li>
+    <li><input type="checkbox" id="movies" name="checkOptions" class="checkOptions" onclick="CheckEffect(this)" /> Movies
+      <ul id="moviesBox" style="display:none;">
+        <li><input type="checkbox" name="moviesBox" /> Darr</li>
+        <li><input type="checkbox" name="moviesBox" /> Sir</li>
+      </ul>
+    </li>
+    <li><input type="checkbox" id="bikes" name="checkOptions" class="checkOptions" onclick="CheckEffect(this)" /> Bikes
+      <ul id="bikesBox" style="display:none;">
+        <li><input type="checkbox" name="bikesBox" /> V-Rod</li>
+        <li><input type="checkbox" name="bikesBox" /> Pulsar</li>
+        <li><input type="checkbox" name="bikesBox" /> CBZ</li>
+      </ul>
+    </li>
+  </ul>
+</div>
+</form>
+</body>
+</html>
