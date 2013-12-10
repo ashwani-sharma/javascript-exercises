@@ -1,6 +1,5 @@
 function nameOfDays (Id) {
   this.allSelectDaysName = new Array();
-  this.Id = document.getElementById(Id);
 }
 nameOfDays.prototype.checkLimit = function (target) {
   var none = document.getElementById("none");

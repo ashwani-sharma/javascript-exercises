@@ -1,0 +1,64 @@
+<!--Exercise for form validation-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Exercise #6</title>
+
+<link rel="stylesheet" type="text/css" href="css/exercise6.css" />
+<script language="javascript" src="js/exercise6.js"></script>
+
+</head>
+
+<body>
+<form name="form1" id="userform" method="get" action="http://google.com">
+<div id="container">
+	<div id="confirmation" class="confirmMessage" style="display:none;">Your all informations have been submitted.</div>
+	<div class="heading">Registration Form</div>
+	<ul>
+		<li>
+			<dl>
+				<dd>Login ID</dd>
+				<dt><input type="text" size="30" name="login" value="" /></dt>
+			</dl>
+			<dl>
+				<dd>Email</dd>
+				<dt><input type="text" size="30" name="email" value="" /></dt>
+			</dl>
+			<dl>
+				<dd>Name</dd>
+				<dt><input type="text" size="30" name="name" value="" /></dt>
+			</dl>
+			<dl>
+				<dd>Gender</dd>
+				<dt><input type="radio" name="gender" id="Male" value="Male" /> Male &nbsp;&nbsp; <input type="radio" name="gender" id="Female" value="Female" /> Female</dt>
+			</dl>
+			<dl>
+				<dd>Timezone</dd>
+				<dt><select style="width:208px;" name="timezone">
+					<option value="0">Select your Timezone</option>
+					<option value="1">GMT</option>
+					<option value="2">IST</option>
+					<option value="3">Local</option>
+				</select></dt>
+			</dl>
+			<dl>
+				<dd>Homepage</dd>
+				<dt><input type="text" size="30" name="homepage" value="" /></dt>
+			</dl>
+			<dl>
+				About Me<br />
+				<textarea name="aboutme" style="width:90%; height:120px;"></textarea></span>
+			</dl>
+			<dl><input type="checkbox" name="confirmcheck" /> Recieve notification of comments</dl>
+			<dl>
+				<input type="button" name="submitButton" value="Submit Information" onclick="check()" />
+			</dl>
+		</li>
+	</ul>
+</div>
+</form>
+
+</body>
+</html>

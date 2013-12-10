@@ -1,0 +1,4 @@
+table.brdr { border:solid 1px #cacaca; border-collapse:collapse; width:600px; }
+table.brdr th { color:#c00000; }
+table.brdr td { text-align:left; color:#666666; }
+table.brdr th, table.brdr td { border-collapse:collapse; padding:5px; font-family:Arial, Helvetica, sans-serif; font-size:12px; }
