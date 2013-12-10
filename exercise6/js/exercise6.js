@@ -1,47 +1,38 @@
-register = document.getElementById("userform");
-var formElement = {
-  text_area : document.getElementById("text_area"),
-  checkbox : document.getElementById("check"),
+var register = document.getElementById("userForm");
+var formElements = {
+  textareaAbout : document.getElementById("about-me"),
+  checkbox : document.getElementById("notification"),
 };
-
-//adding event handler for submit button
 register.addEventListener("submit" ,formvalidation);
-
 function formvalidation(e) {
-  // a flag variable to check the validity of the fields
   var flag = false;
   var element = document.getElementsByClassName("inputvalue");
   for (var i = 0; i < element.length; i++) {
-    var text = element[i].value.trim(' ');        //to remove any leading or trailing white spaces
+    var text = element[i].value.trim(' ');
     if(text === "") {
       alert(element[i].id + " cant be left empty");
       flag = true;
       break;
     }
   }
-  //validate text area field
-  if (formElement.text_area.value.trim(' ').length < 50 & flag == false) {
-    alert(" ABOUT ME information is not complete: it should be minimum 50 characters");
+  if (formElements.textareaAbout.value.trim(' ').length < 50 & flag == false) {
+    alert(" About Me should be minimum 50 characters");
     flag = true;
-    
-  }  
-  //confirm checkbox notification
-  if (check.checked) {
-      textstring = "want";
   } 
+  if (notification.checked) {
+    textstring = "want";
+  }
   else {
-       textstring = "dont want";
+    textstring = "dont want";
   }
   if (! flag) {
     if (confirm("Are you sure you " + textstring + " to receive any notificiaction")) {
-    } 
+    }
     else {
-     flag = true;
+      flag = true;
     }
   }
-  //if any of the field is invalid prevent it from submitting. 
-  if (flag)
-  {
-  e.preventDefault();
-  }  
+  if (flag) {
+    e.preventDefault();
+  }
 }

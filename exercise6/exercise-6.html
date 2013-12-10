@@ -7,58 +7,52 @@
 <title>Exercise #6</title>
 
 <link rel="stylesheet" type="text/css" href="css/exercise6.css" />
-<script language="javascript" src="js/exercise6.js"></script>
 
 </head>
 
 <body>
-<form name="form1" id="userform" method="get" action="http://google.com">
 <div id="container">
-	<div id="confirmation" class="confirmMessage" style="display:none;">Your all informations have been submitted.</div>
-	<div class="heading">Registration Form</div>
-	<ul>
-		<li>
-			<dl>
-				<dd>Login ID</dd>
-				<dt><input type="text" size="30" name="login" value="" /></dt>
-			</dl>
-			<dl>
-				<dd>Email</dd>
-				<dt><input type="text" size="30" name="email" value="" /></dt>
-			</dl>
-			<dl>
-				<dd>Name</dd>
-				<dt><input type="text" size="30" name="name" value="" /></dt>
-			</dl>
-			<dl>
-				<dd>Gender</dd>
-				<dt><input type="radio" name="gender" id="Male" value="Male" /> Male &nbsp;&nbsp; <input type="radio" name="gender" id="Female" value="Female" /> Female</dt>
-			</dl>
-			<dl>
-				<dd>Timezone</dd>
-				<dt><select style="width:208px;" name="timezone">
-					<option value="0">Select your Timezone</option>
-					<option value="1">GMT</option>
-					<option value="2">IST</option>
-					<option value="3">Local</option>
-				</select></dt>
-			</dl>
-			<dl>
-				<dd>Homepage</dd>
-				<dt><input type="text" size="30" name="homepage" value="" /></dt>
-			</dl>
-			<dl>
-				About Me<br />
-				<textarea name="aboutme" style="width:90%; height:120px;"></textarea></span>
-			</dl>
-			<dl><input type="checkbox" name="confirmcheck" /> Recieve notification of comments</dl>
-			<dl>
-				<input type="button" name="submitButton" value="Submit Information" onclick="check()" />
-			</dl>
-		</li>
-	</ul>
+  <div class="heading">Registration Form</div>
+  <form id="userForm" action="_blank">
+    <ul>
+      <li>
+        <dl>
+          <dd><span class="label"><label for ="login">Login Id</label></span></dd>
+          <dt><input type="text" id="login" class="inputvalue"></dt>
+        </dl>
+        <dl>
+          <dd><span class="label"><label for ="email">Email</label></span></dd>
+          <dt><input type="text" id="email" class="inputvalue"></dt>
+        </dl>
+        <dl>
+          <dd><span class="label"><label for ="name">Name</label></span></dd>
+          <dt><input type="text" id="name" class="inputvalue"></dt>
+        </dl>
+        <dl>
+          <dd><span class="label"><label for="timezone">Timezone</span></dd>
+          <dt>
+            <select id="gmt">
+              <option value="GMT">GMT</option>
+              <option value="GMT+1">GMT+1</option>
+              <option value="GMT+2">GMT+2</option>
+              <option value="GMT+3">GMT+3</option>
+              <option value="GMT+4">GMT+4</option>
+            </select>
+          </dt>
+        </dl>
+        <dl>
+          <dd><span class="label"><label for ="homepage">Homepage</label></span></dd>
+          <dt><input type="text" id="homepage" class="inputvalue"></dt>
+        </dl>
+        <dl><span class="label">About Me</span><br>
+          <textarea id="about-me" rows="8" cols="27" class ="inputvalue"></textarea>
+        </dl>
+        <dl><input type="checkbox" id="notification">Receive notification of comments</dl>
+        <dl><input type="submit"  id="go" value="GO"></dl>
+      </li>
+    </ul>
+  </form>
 </div>
-</form>
-
+<script language="javascript" src="js/exercise6.js"></script>
 </body>
 </html>
