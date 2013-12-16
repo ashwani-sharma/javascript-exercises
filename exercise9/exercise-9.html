@@ -1,0 +1,35 @@
+<!--Exercise for moving select box values from one to another-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Exercise #9</title>
+<link rel="stylesheet" type="text/css" href="css/exercise9.css" />
+<script language="javascript" src="js/exercise9.js"></script>
+</head>
+
+<body>
+<form name="form1" class="form">
+  <div class="source-block">
+    <select multiple name="source" size="8" class="source-select">
+      <option>India</option>
+      <option>Sri Lanka</option>
+      <option>Pakistan</option>
+      <option>New Zealand</option>
+      <option>Australia</option>
+      <option>South Africa</option>
+    </select>
+  </div>
+
+  <div class="button-block">
+    <input type="Button" value="Add Selected &gt;&gt;" onClick="changeItem('source', 'destination')"><br/><br />
+    <input type="Button" value="&lt;&lt; Remove Selected" onClick="changeItem('destination', 'source')">
+  </div>
+
+  <div class="destination-block">
+    <select multiple name="destination" size="8" class="destination-select"></select>
+  </div>
+</form>
+</body>
+</html>

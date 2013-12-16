@@ -1,29 +1,30 @@
-function nameOfDays (Id) {
-  this.allSelectDaysName = new Array();
+function getCheckBoxes(getClassName) {
+  this.uncheckAll = document.getElementById("none");
+  this.targetCheck = document.querySelectorAll("input[type='checkbox']." + getClassName);
 }
-nameOfDays.prototype.checkLimit = function (target) {
-  var none = document.getElementById("none");
-  var maxChecked = 3;
-  if (target.checked == true && target != none) {
-    this.allSelectDaysName.push(target.value);
-    none.checked = false;
+getCheckBoxes.prototype.validateMaxCheck = function(selectedCheckbox) {
+  var count = 0;
+  var maxGetSelected = 3;
+  this.uncheckAll.checked = false;
+  for (var i = 0, len = this.targetCheck.length; i < len; i++) {
+    if (this.targetCheck[i].checked && !(this.targetCheck[i] == selectedCheckbox)) {
+      count++;
+    }
   }
-  else {
-    var index = this.allSelectDaysName.indexOf(target.value);
-    this.allSelectDaysName.splice(index,1);
-  }
-  if (this.allSelectDaysName.length == (maxChecked + 1)) {
-    target.checked = false;
-    this.allSelectDaysName.pop();
-    alert("Only 3 days can be selected. You have already selected " + this.allSelectDaysName.slice(0,-1) + " and " + this.allSelectDaysName.slice(-1));
+  if (count >= maxGetSelected) {
+    var selectedDays = new Array();
+    selectedCheckbox.checked = false;
+    for (var i = 0, len = this.targetCheck.length; i < len; i++) {
+      if (this.targetCheck[i].checked) {
+        selectedDays.push(this.targetCheck[i].value);
+      }
+    }
+    alert("Only 3 days can be selected. You have already selected " + selectedDays[0] + "," + selectedDays[1] + " and " + selectedDays[2]);
   }
 }
-nameOfDays.prototype.removeChecked = function () {
-  var selected = document.querySelectorAll("#dayTable input[type='checkbox']:checked");
-  for ( var i = 0; i < selected.length; i++) {
-    selected[i].checked = false;
+getCheckBoxes.prototype.selectNone = function() {
+  for (var i = 0, len = this.targetCheck.length; i < len; i++) {
+    this.targetCheck[i].checked = false;
   }
-  none.checked = true;
-  this.allSelectDaysName = [];
 }
-var Days = new nameOfDays("dayTable");
+var dayNames = new getCheckBoxes("days");

@@ -7,46 +7,47 @@
 <title>Exercise 3</title>
 
 <link rel="stylesheet" type="text/css" href="css/exercise3.css" />
-<script language="javascript" src="js/exercise3.js"></script>
 
 </head>
 
 <body>
-<form name="form1" method="post" id="dayTable">
+<form name="form1" method="post" id="myform">
   <table width="300" border="0" cellpadding="0" cellspacing="0" class="brdr">
     <tr>
-      <td width="50"><input type="checkbox" value="Sunday" name="slave" id="sunday" class="weekdays" onchange="Days.checkLimit(this)" /></td>
+      <td width="50"><input type="checkbox" value="Sunday" name="slave" id="sunday" class="days" onchange="dayNames.validateMaxCheck(this)" /></td>
       <td><label for="sunday">Sunday</label></td>
     </tr>
     <tr>
-      <td width="50"><input type="checkbox" value="Monday" name="slave" id="monday" class="weekdays" onchange="Days.checkLimit(this)" /></td>
+      <td width="50"><input type="checkbox" value="Monday" name="slave" id="monday" class="days" onchange="dayNames.validateMaxCheck(this)" /></td>
       <td><label for="monday">Monday</label></td>
     </tr>
     <tr>
-      <td width="50"><input type="checkbox" value="Wednesday" name="slave" id="wednesday" class="weekdays" onchange="Days.checkLimit(this)" /></td>
+      <td width="50"><input type="checkbox" value="Wednesday" name="slave" id="wednesday" class="days" onchange="dayNames.validateMaxCheck(this)" /></td>
       <td><label for="wednesday">Wednesday</label></td>
     </tr>
     <tr>
-      <td width="50"><input type="checkbox" value="Thursday" name="slave" id="thursday" class="weekdays" onchange="Days.checkLimit(this)" /></td>
+      <td width="50"><input type="checkbox" value="Thursday" name="slave" id="thursday" class="days" onchange="dayNames.validateMaxCheck(this)" /></td>
       <td><label for="thursday">Thursday</label></td>
     </tr>
     <tr>
-      <td width="50"><input type="checkbox" value="Tuesday" name="slave" id="tuesday" class="weekdays" onchange="Days.checkLimit(this)" /></td>
+      <td width="50"><input type="checkbox" value="Tuesday" name="slave" id="tuesday" class="days" onchange="dayNames.validateMaxCheck(this)" /></td>
       <td><label for="tuesday">Tuesday</label></td>
     </tr>
     <tr>
-      <td width="50"><input type="checkbox" value="Friday" name="slave" id="friday" class="weekdays" onchange="Days.checkLimit(this)" /></td>
+      <td width="50"><input type="checkbox" value="Friday" name="slave" id="friday" class="days" onchange="dayNames.validateMaxCheck(this)" /></td>
       <td><label for="friday">Friday</label></td>
     </tr>
     <tr>
-      <td width="50"><input type="checkbox" value="Saturday" name="slave" id="saturday" class="weekdays" onchange="Days.checkLimit(this)" /></td>
+      <td width="50"><input type="checkbox" value="Saturday" name="slave" id="saturday" class="days" onchange="dayNames.validateMaxCheck(this)" /></td>
       <td><label for="saturday">Saturday</label></td>
     </tr>
     <tr>
-      <td width="80"> <input id="none" type="checkbox" name="none" onclick="Days.removeChecked()"/></td>
+      <td width="80"> <input id="none" type="checkbox" name="none" onclick="dayNames.selectNone()"/></td>
       <td><label for="none"><strong>None</strong></label></td>
     </tr>
   </table>
 </form>
+
+<script language="javascript" src="js/exercise3.js"></script>
 </body>
 </html>
