@@ -12,23 +12,25 @@
 <body>
 <form name="form1" class="form">
   <div class="source-block">
-    <select multiple name="source" size="8" class="source-select">
+    <select multiple id="add" name="source" size="8" class="source-select">
       <option>India</option>
       <option>Sri Lanka</option>
       <option>Pakistan</option>
       <option>New Zealand</option>
       <option>Australia</option>
       <option>South Africa</option>
+      <option>West Indies</option>
+      <option>Zimbabwe</option>
     </select>
   </div>
 
   <div class="button-block">
-    <input type="Button" value="Add Selected &gt;&gt;" onClick="changeItem('source', 'destination')"><br/><br />
-    <input type="Button" value="&lt;&lt; Remove Selected" onClick="changeItem('destination', 'source')">
+    <input type="Button" value="Add Selected &gt;&gt;" onClick="changeItem('add', 'remove')"><br/><br />
+    <input type="Button" value="&lt;&lt; Remove Selected" onClick="changeItem('remove', 'add')">
   </div>
 
   <div class="destination-block">
-    <select multiple name="destination" size="8" class="destination-select"></select>
+    <select multiple id="remove" name="destination" size="8" class="destination-select"></select>
   </div>
 </form>
 </body>
