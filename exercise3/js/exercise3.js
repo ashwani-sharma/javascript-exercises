@@ -1,30 +1,30 @@
-function getCheckBoxes(getClassName) {
-  this.uncheckAll = document.getElementById("none");
-  this.targetCheck = document.querySelectorAll("input[type='checkbox']." + getClassName);
+function checkBox(className) {
+  this.noneCheckbox = document.getElementById("none");
+  this.allCheckBoxes = document.querySelectorAll("input[type='checkbox']." + className);
 }
-getCheckBoxes.prototype.validateMaxCheck = function(selectedCheckbox) {
+checkBox.prototype.validateCheck = function(selectedCheckbox) {
   var count = 0;
-  var maxGetSelected = 3;
-  this.uncheckAll.checked = false;
-  for (var i = 0, len = this.targetCheck.length; i < len; i++) {
-    if (this.targetCheck[i].checked && !(this.targetCheck[i] == selectedCheckbox)) {
+  var maxSelected = 3;
+  this.noneCheckbox.checked = false;
+  for (var i = 0, len = this.allCheckBoxes.length; i < len; i++) {
+    if (this.allCheckBoxes[i].checked && !(this.allCheckBoxes[i] == selectedCheckbox)) {
       count++;
     }
   }
-  if (count >= maxGetSelected) {
+  if (count >= maxSelected) {
     var selectedDays = new Array();
     selectedCheckbox.checked = false;
-    for (var i = 0, len = this.targetCheck.length; i < len; i++) {
-      if (this.targetCheck[i].checked) {
-        selectedDays.push(this.targetCheck[i].value);
+    for (var i = 0, len = this.allCheckBoxes.length; i < len; i++) {
+      if (this.allCheckBoxes[i].checked) {
+        selectedDays.push(this.allCheckBoxes[i].value);
       }
     }
     alert("Only 3 days can be selected. You have already selected " + selectedDays[0] + "," + selectedDays[1] + " and " + selectedDays[2]);
   }
 }
-getCheckBoxes.prototype.selectNone = function() {
-  for (var i = 0, len = this.targetCheck.length; i < len; i++) {
-    this.targetCheck[i].checked = false;
+checkBox.prototype.selectNone = function() {
+  for (var i = 0, len = this.allCheckBoxes.length; i < len; i++) {
+    this.allCheckBoxes[i].checked = false;
   }
 }
-var dayNames = new getCheckBoxes("days");
+var dayNames = new checkBox("days");
