@@ -1,20 +1,34 @@
-function validateFullName (input) {
+function User() {
+  this.firstName = "";
+  this.secondName = "";
+}
+User.prototype.getNames = function() {
+  this.firstName = this.promptName("firstName");
+  this.secondName = this.promptName("secondName");
+}
+User.prototype.promptName = function(myName) {
+  var name;
   do {
-    var name = prompt ("enter your " + input + " name");
-    if (name == "" || (name.trim(' ').length==0)) {
-      alert("please enter a valid " + input + "name" );
-    }
+    name = prompt("Enter your " + myName);
+    var trimmedName = name.trim();
+  } while (!this.checkTrimmedName(trimmedName));
+  return trimmedName;
+} 
+User.prototype.checkTrimmedName = function(trimmedName) {
+  if (!trimmedName) {
+    alert("Enter the correct name");
+    return false;
   }
-  while (name == false);
-  return name;
+  else {
+    return true;
+  }  
 }
-
-function user () {
-  fname = validateFullName("first");
-  lname = validateFullName("last");
-  message = "Your name is " + fname + " " + lname;
+User.prototype.welcome = function() {
+  var message = "hello " + this.firstName + " " + this.secondName;
+  var div = document.createElement("div");
   alert(message);
-  createBlock = document.createElement("div");
-  createBlock.appendChild(document.createTextNode(message));
-  document.body.appendChild(createBlock);
+  div.innerHTML = message;
 }
+var user = new User(); 
+user.getNames();
+user.welcome();

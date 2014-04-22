@@ -7,27 +7,18 @@
 <title>Exercise 4</title>
 
 <link rel="stylesheet" type="text/css" href="css/exercise4.css" />
-<script language="javascript" src="js/exercise4.js"></script>
-
 </head>
 
 <body>
-<form name="form1" method="">
-  <input type="button" name="addNewRow" value="Add New Row" onclick="addRow()" class="addRowButton" />
-  <table border="1" cellpadding="0" cellspacing="0" class="brdr" id="myTable">
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Action</th>
-      <th style="display:none">&nbsp;</th>
-    </tr>
-    <tr>
-      <td width="25%">Ashwani Sharma</td>
-      <td width="25%">ashwani.sharma@vinsol.com</td>
-      <td width="50%"><input type="button" value="Edit" onclick="editData(this)" /> <input type="button" value="Delete" onclick="deleteRow(this)" /></td>
-      <td width="50%" style="display:none;"><input type="button" value="Save" onclick="saveData(this)" /></td>
-    </tr>
-  </table>
-</form>
+<table class="brdr" id="dynamicData">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th class="actions">Actions</th>
+  </tr>
+</table>
+<button id="addNewRow" name="addNewRow">Add New Row</button> 
+
+<script src="js/exercise4.js" type="text/javascript"></script>
 </body>
 </html>
