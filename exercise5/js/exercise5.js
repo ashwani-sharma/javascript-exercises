@@ -1,18 +1,33 @@
-function CheckEffect (check) {
-  var mainCheckBox = check.id + "Box";
-  var hiddenList = document.getElementById(mainCheckBox);
-  var hiddenListContents = document.getElementsByName(mainCheckBox);
-  if(check.checked == true) {
-    hiddenList.style.display = "block";
-    for (i = 0; i< hiddenListContents.length; i++) {
-      hiddenListContents[i].checked = true;
+var listMenuItem = function(parentCheck) {
+  this.init(parentCheck);
+};
+
+listMenuItem.prototype = {
+  init: function(parentCheck) {
+    this.childCheckBoxes = parentCheck.parentNode.getElementsByClassName("checkChildren");
+    this.childBlock = parentCheck.parentNode.getElementsByTagName("ul")[0];
+    this.childrenBlock(parentCheck);
+  },
+
+  childrenBlock: function(parentCheck) {
+    var obj = this;
+    parentCheck.onclick = function() {
+      obj.childBlock.style.display = this.checked ?  "block" : "none";
+      this.scrollIntoView(true);
+      obj.checkStates(obj.childCheckBoxes, this.checked);
     }
-    check.scrollIntoView(true);
+  },
+
+  checkStates: function(checkBoxes, state) {
+    for (var i = 0; i < checkBoxes.length; i++)
+      checkBoxes[i].checked = state;
   }
-  else { 
-    hiddenList.style.display = "none";
-    for (i=0;i< hiddenListContents.length;i++) {
-      hiddenListContents[i].checked = false;
-    }
+}
+
+window.onload = function() {
+  var objectCollection = [];
+  var checkOptions = document.getElementsByClassName("checkOptions");
+  for (var i = 0; i < checkOptions.length; i++) {
+    objectCollection.push(new listMenuItem(checkOptions[i]));
   }
 }
