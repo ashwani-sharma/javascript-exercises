@@ -1,3 +1,4 @@
+#contaner { float: left; width: 100%; }
 .source-block { float:left; width:220px; }
 .source-select, .destination-select { width:200px; }
 .button-block { float:left; width:170px; }
