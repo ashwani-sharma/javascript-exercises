@@ -1,10 +1,11 @@
-function getCheckBoxes (thisClass) {
-  this.findCheckBoxes = document.getElementsByClassName(thisClass);
-}
-getCheckBoxes.prototype.selectAllOrNone = function (thisStatus) {
-  for (var i = 0; i < this.findCheckBoxes.length; i++) {
-    this.findCheckBoxes[i].checked = thisStatus;
-  }
-  return false;
-}
-var allCheckboxes = new getCheckBoxes("slave");
+var checkAllBoxes = function (className) {
+		 this.checkBoxes = document.getElementsByClassName(className);
+	}
+
+	checkAllBoxes.prototype.checkAll = function (status) {
+		for(var i = 0; i<=this.checkBoxes.length; i++) {
+			this.checkBoxes[i].checked = status;
+		}
+	}
+
+	var checkResult = new checkAllBoxes("children");

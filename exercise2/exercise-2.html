@@ -9,30 +9,32 @@
 
 <body>
 <form name="form1" method="post">
-  <table width="300" border="0" cellpadding="0" cellspacing="0" class="brdr">
+  <table class="table brdr">
     <tr>
-      <td width="80"><a href="javascript:void(0)" onclick="return allCheckboxes.selectAllOrNone(true)">Check All</a></td>
-      <td><a href="javascript:void(0)" onclick="return allCheckboxes.selectAllOrNone(false)">Uncheck All</a></td>
+      <td colspan="2"><input type="button" value="Check All" onclick="checkResult.checkAll(true)"></td>
     </tr>
     <tr>
-      <td width="50"><input type="checkbox" class="slave" id="red" /></td>
-      <td>Red</td>
+      <td><input type="checkbox" id="red" class="children"></td>
+      <td><label for="red">Red</label></td>
     </tr>
     <tr>
-      <td width="50"><input type="checkbox" class="slave" id="green" /></td>
-      <td>Green</td>
+      <td><input type="checkbox" id="green" class="children"></td>
+      <td><label for="green">Green</label></td>
     </tr>
     <tr>
-      <td width="50"><input type="checkbox" class="slave" id="yellow" /></td>
-      <td>Yellow</td>
+      <td><input type="checkbox" id="yellow" class="children"></td>
+      <td><label for="yellow">Yellow</label></td>
     </tr>
     <tr>
-      <td width="50"><input type="checkbox" class="slave" id="white" /></td>
-      <td>White</td>
+      <td><input type="checkbox" id="white" class="children"></td>
+      <td><label for="white">White</label></td>
     </tr>
     <tr>
-      <td width="50"><input type="checkbox" class="slave" id="black" /></td>
-      <td>Black</td>
+      <td><input type="checkbox" id="black" class="children"></td>
+      <td><label for="black">Black</label></td>
+    </tr>
+    <tr>
+      <td colspan="2"><input type="button" value="Uncheck All" onclick="checkResult.checkAll(false)"></td>
     </tr>
   </table>
 </form>
