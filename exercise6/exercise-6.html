@@ -13,42 +13,39 @@
 <body>
 <div id="container">
   <div class="heading">Registration Form</div>
-  <form id="userForm" action="_blank">
+  <form id="user-form">
     <ul>
       <li>
         <dl>
           <dd><span class="label"><label for ="login">Login Id</label></span></dd>
-          <dt><input type="text" id="login" class="inputvalue"></dt>
+          <dt><input type="text" name="login-id" class="required"></dt>
         </dl>
         <dl>
           <dd><span class="label"><label for ="email">Email</label></span></dd>
-          <dt><input type="text" id="email" class="inputvalue"></dt>
+          <dt><input type="text" name="email" class="required"></dt>
         </dl>
         <dl>
           <dd><span class="label"><label for ="name">Name</label></span></dd>
-          <dt><input type="text" id="name" class="inputvalue"></dt>
+          <dt><input type="text" name="name" class="required"></dt>
         </dl>
         <dl>
           <dd><span class="label"><label for="timezone">Timezone</span></dd>
           <dt>
-            <select id="gmt">
+            <select id="gmt" name="timezone">
               <option value="GMT">GMT</option>
-              <option value="GMT+1">GMT+1</option>
-              <option value="GMT+2">GMT+2</option>
-              <option value="GMT+3">GMT+3</option>
-              <option value="GMT+4">GMT+4</option>
+              <option value="GMT">IST</option>
             </select>
           </dt>
         </dl>
         <dl>
           <dd><span class="label"><label for ="homepage">Homepage</label></span></dd>
-          <dt><input type="text" id="homepage" class="inputvalue"></dt>
+          <dt><input type="text" name="homepage" class="required"></dt>
         </dl>
         <dl><span class="label">About Me</span><br>
-          <textarea id="about-me" rows="8" cols="27" class ="inputvalue"></textarea>
+          <textarea id="about" name="about-me" rows="8" cols="27" class ="required"></textarea>
         </dl>
-        <dl><input type="checkbox" id="notification">Receive notification of comments</dl>
-        <dl><input type="submit"  id="go" value="GO"></dl>
+        <dl><input type="checkbox" name="notification" id="notification">Receive notification of comments</dl>
+        <dl><input type="submit" id="go" value="GO"></dl>
       </li>
     </ul>
   </form>
