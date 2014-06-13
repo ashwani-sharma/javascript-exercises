@@ -1,34 +1,32 @@
-function User() {
-  this.firstName = "";
-  this.secondName = "";
+var userInputValues = function(fname, lname) {
+  this.init(fname, lname);
 }
-User.prototype.getNames = function() {
-  this.firstName = this.promptName("firstName");
-  this.secondName = this.promptName("secondName");
-}
-User.prototype.promptName = function(myName) {
-  var name;
-  do {
-    name = prompt("Enter your " + myName);
-    var trimmedName = name.trim();
-  } while (!this.checkTrimmedName(trimmedName));
-  return trimmedName;
-} 
-User.prototype.checkTrimmedName = function(trimmedName) {
-  if (!trimmedName) {
-    alert("Enter the correct name");
-    return false;
+
+userInputValues.prototype = {
+  init: function (fname, lname) {
+    this.fname = this.promptValues(fname);
+    this.lname = this.promptValues(lname);
+  },
+
+  promptValues: function (text) {
+    var value = "";
+    while (value.trim().length == 0) {
+      value = prompt("enter your " + text, "");
+    }
+    return value.trim();
+  },
+
+  alertAndPrintValues: function () {
+    var message = "Welcome " + this.fname + " " + this.lname + "!",
+        elem = document.createElement("div");
+
+    alert(message);
+    elem.innerHTML = message;
+    document.body.appendChild(elem);
   }
-  else {
-    return true;
-  }  
 }
-User.prototype.welcome = function() {
-  var message = "hello " + this.firstName + " " + this.secondName;
-  var div = document.createElement("div");
-  alert(message);
-  div.innerHTML = message;
+
+window.onload = function () {
+  var inputResult = new userInputValues("FirstName", "LastName");
+  inputResult.alertAndPrintValues();
 }
-var user = new User(); 
-user.getNames();
-user.welcome();
