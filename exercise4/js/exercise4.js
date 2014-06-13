@@ -1,178 +1,158 @@
-var Regex = {
-  EMAIL: /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]{2,}(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/,
+var dynamicTable = function () {
+  this.init();
 }
 
-//Class for defining all the validations
-var Validations = {
+dynamicTable.prototype = {
+  init: function () {
+    this.addRowBtn = document.getElementById("add-row");
+    this.table = document.getElementById("data-grid");
 
-  checkRequiredField: function(required_field) {
-    if (required_field.value.trim() == '') {
-      alert('You cannot leave name blank');
-      required_field.focus();
-      return false;
+    this.addListenerAppendRow();
+  },
+
+  createBtn: function (val, visible) {
+    btn = document.createElement("input");
+    btn.type = "button";
+    btn.value = val;
+    btn.className = val.toLowerCase();
+    btn.style.display = visible ? 'inline' : "none";
+    return btn;
+  },
+
+  createCells: function () {
+    var obj = this;
+    var name = obj.createCell(),
+        email = obj.createCell(),
+        action = obj.createCell('action');
+    return [name, email, action];
+  },
+
+  createCell: function (cellType) {
+    var obj = this;
+    var cell = document.createElement("td");
+    if (cellType == 'action') {
+      btns = [
+                obj.createBtn('Save', true),
+                obj.createBtn('Edit', false),
+                obj.createBtn('Delete', false)
+              ];
+      obj.appeadChildrenTo(cell, btns);    
     }
     else {
-      return true;
+      var input = document.createElement("input"),
+          label = document.createElement("span");
+      input.type = "text";      
+      obj.appeadChildrenTo(cell, [input, label]);
     }
+    return cell;
   },
 
-  checkEmail: function(email_field) {
-    if (Regex.EMAIL.test(email_field.value.trim())) {
-      return true;
-    }
-    else {
-      alert('Invalid Email!');
-      email_field.focus();
-      return false;
-    }
-  }
+  addListenerSaveAction: function () {
+    var obj = this,
+        row = obj.table.rows[obj.table.rows.length - 1],
+        save = row.getElementsByClassName("save")[0],
+        edit = row.getElementsByClassName("edit")[0],
+        del = row.getElementsByClassName("delete")[0];
 
-}
+    save.addEventListener("click", function () {
+      var nameInputField = row.getElementsByTagName("input")[0],
+          emailInputField = row.getElementsByTagName("input")[1],
+          nameSpanField = row.getElementsByTagName("span")[0],
+          emailSpanField = row.getElementsByTagName("span")[1],
 
-// class for dynamic table
-var DynamicTable = {
+          nameValue = nameInputField.value,
+          emailValue = emailInputField.value;
 
-  row_id: 0,
-
-  init: function() {
-    this.data_table = document.getElementById('data-grid').tBodies[0];
-  }, 
-
-  createRow: function() {
-    TableRow.create(this.data_table, this.row_id);
-    this.row_id++;
-  },
-
-  deleteRow: function(row) {
-    row.remove();
-  }
-
-}
-
-// constructor for table row class
-var TableRow = function(table, row_id) {
-  this.table = table;
-  this.row = this.createAndAppendElement('tr', this.table, { 'data-row-id' : row_id });
-  
-  // invoke methods
-  this.createCells();
-}
-
-//class method that will create row object
-TableRow.create = function(table, row_id) {
-  new TableRow(table, row_id);
-}
-
-TableRow.prototype = {
-  
-  createCells: function() {
-    this.createNameCell();
-    this.createEmailCell();
-    this.createActionCell();
-  },
-
-  createNameCell: function() {
-    this.name_cell = this.createAndAppendElement('td', this.row);
-    this.input_name = this.createAndAppendElement('input', this.name_cell, { 'type' : 'text' });
-    this.label_name = this.createAndAppendElement('span', this.name_cell, { 'style' : 'display:none' });
-  },
-
-  createEmailCell: function() {
-    this.email_cell = this.createAndAppendElement('td', this.row);
-    this.input_email = this.createAndAppendElement('input', this.email_cell, { 'type' : 'text' });
-    this.label_email = this.createAndAppendElement('span', this.email_cell, { 'style' : 'display:none' });
-  },
-
-  createActionCell: function() {
-    var this_object = this;
-
-    this.action_cell = this.createAndAppendElement('td', this.row);
-    this.save_button = this.createAndAppendElement('input', this.action_cell, { 'type' : 'button', 'value' : 'Save' });
-    
-    this.edit_link = this.createAndAppendElement('a', this.action_cell, { 'href' : 'javaScript:void(0)', 'style' : 'display:none' });
-    this.edit_link.innerText = 'Edit';
-
-    this.delete_link = this.createAndAppendElement('a', this.action_cell, { 'href' : 'javaScript:void(0)', 'style' : 'display:none' });
-    this.delete_link.innerText = 'Delete';
-
-    // saving elements of that we need to hide and show in arrays
-    this.updated_elements_array = [ this.label_name, this.label_email, this.edit_link, this.delete_link ];
-    this.elements_to_update_array = [ this.input_name, this.input_email, this.save_button ];
-
-    this.save_button.onclick = function() {
-      var required_fields_status = Validations.checkRequiredField(this_object.input_name);
-      var email_field_status = Validations.checkEmail(this_object.input_email);
-      if (required_fields_status && email_field_status) {
-        this_object.updateValue();
-        this_object.save();
+      if (nameInputField.value == "" || emailInputField.value == "") {
+        alert("Fields should not empty");
+        return false;
       }
-    }
-    
-    this.edit_link.onclick = function() {
-      this_object.edit();
-    }
-    
-    this.delete_link.onclick = function() {
-      this_object.delete();
-    }
+      else {
+        nameInputField.style.display = "none";
+        emailInputField.style.display = "none";
+
+        nameSpanField.style.display = "block";
+        emailSpanField.style.display = "block";
+
+        nameSpanField.innerHTML = nameValue;
+        emailSpanField.innerHTML = emailValue;
+
+        this.style.display = "none";
+        edit.style.display = "inline";
+        del.style.display = "inline"; 
+      }
+    });
   },
 
-  save: function() {
-    this.hideElements(this.elements_to_update_array);
-    this.showElements(this.updated_elements_array);
+  addListenerEditAction: function () {
+    var obj = this,
+        row = obj.table.rows[obj.table.rows.length - 1],
+        save = row.getElementsByClassName("save")[0],
+        edit = row.getElementsByClassName("edit")[0],
+        del = row.getElementsByClassName("delete")[0];
+
+    edit.addEventListener("click", function () {
+      var nameInputField = row.getElementsByTagName("input")[0],
+          emailInputField = row.getElementsByTagName("input")[1],
+          nameSpanField = row.getElementsByTagName("span")[0],
+          emailSpanField = row.getElementsByTagName("span")[1],
+
+          nameValue = nameInputField.value,
+          emailValue = emailInputField.value;
+
+      nameInputField.style.display = "block";
+      emailInputField.style.display = "block";
+
+      nameSpanField.style.display = "none";
+      emailSpanField.style.display = "none";
+
+      this.style.display = "none";
+      save.style.display = "inline";
+      del.style.display = "none";
+    });
   },
 
-  edit: function() {
-    this.showElements(this.elements_to_update_array);
-    this.hideElements(this.updated_elements_array);
+  addListenerDeleteAction: function () {
+    var obj = this,
+        row = obj.table.rows[obj.table.rows.length - 1],
+        del = row.getElementsByClassName("delete")[0];
+
+    del.addEventListener("click", function () {
+      row.remove();
+    });
   },
 
-  hideElements: function(array) {
-    this.setVisibility(array, 'none');
+  createRow: function () {
+    var obj = this,
+        rowCount = obj.table.rows.length,
+        row = obj.table.insertRow(rowCount++),
+        cells = obj.createCells();
+    obj.appeadChildrenTo(row, cells);
+    obj.attachActionBtnListeners();
   },
 
-  showElements: function(array) {
-    this.setVisibility(array, 'block');
+  appeadChildrenTo: function(row, cells) {
+    cells.forEach(function(v, i) {
+      row.appendChild(v);
+    })
   },
 
-  setVisibility: function(array, visibility) {
-    console.log(array);
-    console.log(visibility);
-    for (var i = 0; i < array.length; i++) {
-      array[i].style.display = visibility;
-    }
+  attachActionBtnListeners: function () {
+    var obj = this;
+    obj.addListenerSaveAction();
+    obj.addListenerEditAction();
+    obj.addListenerDeleteAction();
   },
 
-  delete: function() {
-    DynamicTable.deleteRow(this.row);
-  },
-
-  updateValue: function() {
-    this.label_name.innerText = this.input_name.value;
-    this.label_email.innerText = this.input_email.value;
-  },
-  
-  //attributes are passed as an object with 'key' as the attribute and 'value' as the attribute value
-  createAndAppendElement: function(element_type, parent_element, attributes) {
-    var new_element = document.createElement(element_type);
-    attributes = attributes || {};
-    parent_element.appendChild(new_element);
-
-    for (var key in attributes) {
-      new_element.setAttribute(key, attributes[key]);
-    }
-    return new_element;
+  addListenerAppendRow: function () {
+    var obj = this,
+        rowCount = obj.table.rows.length;
+    obj.addRowBtn.addEventListener("click", function () {
+      obj.createRow();
+    });
   }
-
 }
 
-window.onload = function() {
-  var add_row_button = document.getElementById('add-row');
-  
-  DynamicTable.init();
-
-  add_row_button.addEventListener('click', function() {
-    DynamicTable.createRow();
-  });
-
+window.onload = function () {
+  var results = new dynamicTable();
 }
