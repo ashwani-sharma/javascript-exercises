@@ -1,30 +1,54 @@
-function checkBox(className) {
-  this.noneCheckbox = document.getElementById("none");
-  this.allCheckBoxes = document.querySelectorAll("input[type='checkbox']." + className);
+var maxCheckSelection = 3;
+
+var checkSelection = function () {
+  this.init();
 }
-checkBox.prototype.validateCheck = function(selectedCheckbox) {
-  var count = 0;
-  var maxSelected = 3;
-  this.noneCheckbox.checked = false;
-  for (var i = 0, len = this.allCheckBoxes.length; i < len; i++) {
-    if (this.allCheckBoxes[i].checked && !(this.allCheckBoxes[i] == selectedCheckbox)) {
-      count++;
-    }
-  }
-  if (count >= maxSelected) {
-    var selectedDays = new Array();
-    selectedCheckbox.checked = false;
-    for (var i = 0, len = this.allCheckBoxes.length; i < len; i++) {
-      if (this.allCheckBoxes[i].checked) {
-        selectedDays.push(this.allCheckBoxes[i].value);
+
+checkSelection.prototype = {
+  init: function () {
+    this.checkBoxes = document.getElementsByClassName("days");
+    this.len = this.checkBoxes.length;
+    this.noneCheck = document.getElementById("none");
+    this.storedDay = new Array();
+
+    this.checkMaxThreeDays();
+    this.checkNone();
+  },
+
+  checkMaxThreeDays: function () {
+    var obj = this;
+    for(i=0; i<obj.len; i++) {
+      this.checkBoxes[i].onclick = function () {
+        if(this.checked) {
+          obj.noneCheck.checked = false;
+          obj.storedDay.push(this.value);
+        }
+        else if(!this.checked) {
+          obj.storedDay.splice(obj.storedDay.indexOf(this.value), 1);
+        }
+
+        if(obj.storedDay.length > maxCheckSelection) {
+          obj.storedDay.pop();
+          this.checked = false;
+          alert("you can't selected more than 3 days. you have already selected " + obj.storedDay[0] + "," + obj.storedDay[1] + " and " + obj.storedDay[2]);
+        }
       }
     }
-    alert("Only 3 days can be selected. You have already selected " + selectedDays[0] + "," + selectedDays[1] + " and " + selectedDays[2]);
+  },
+
+  checkNone: function () {
+    var obj = this;
+    obj.noneCheck.onclick = function () {
+      if(obj.noneCheck.checked) {
+        for(i=0; i<obj.len; i++) {
+          obj.checkBoxes[i].checked = false;
+          obj.storedDay.splice(0, obj.storedDay.length);
+        }
+      }
+    }
   }
 }
-checkBox.prototype.selectNone = function() {
-  for (var i = 0, len = this.allCheckBoxes.length; i < len; i++) {
-    this.allCheckBoxes[i].checked = false;
-  }
+
+window.onload = function () {
+  var selectionResult = new checkSelection();
 }
-var dayNames = new checkBox("days");
