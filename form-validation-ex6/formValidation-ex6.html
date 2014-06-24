@@ -1,0 +1,55 @@
+<!--Exercise for form validation-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Exercise #6</title>
+
+<link rel="stylesheet" type="text/css" href="css/formValidation-ex6.css" />
+
+</head>
+
+<body>
+<div id="container">
+  <div class="heading">Registration Form</div>
+  <form id="user-form">
+    <ul>
+      <li>
+        <dl>
+          <dd><span class="label"><label for ="login">Login Id</label></span></dd>
+          <dt><input type="text" name="login-id" class="required"></dt>
+        </dl>
+        <dl>
+          <dd><span class="label"><label for ="email">Email</label></span></dd>
+          <dt><input type="text" name="email" class="required"></dt>
+        </dl>
+        <dl>
+          <dd><span class="label"><label for ="name">Name</label></span></dd>
+          <dt><input type="text" name="name" class="required"></dt>
+        </dl>
+        <dl>
+          <dd><span class="label"><label for="timezone">Timezone</span></dd>
+          <dt>
+            <select id="gmt" name="timezone">
+              <option value="GMT">GMT</option>
+              <option value="GMT">IST</option>
+            </select>
+          </dt>
+        </dl>
+        <dl>
+          <dd><span class="label"><label for ="homepage">Homepage</label></span></dd>
+          <dt><input type="text" name="homepage" class="required"></dt>
+        </dl>
+        <dl><span class="label">About Me</span><br>
+          <textarea id="about" name="about-me" rows="8" cols="27" class ="required"></textarea>
+        </dl>
+        <dl><input type="checkbox" name="notification" id="notification">Receive notification of comments</dl>
+        <dl><input type="submit" id="go" value="GO"></dl>
+      </li>
+    </ul>
+  </form>
+</div>
+<script language="javascript" src="js/formValidation-ex6.js"></script>
+</body>
+</html>
