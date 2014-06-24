@@ -26,9 +26,7 @@ Validation.prototype = {
       alert(labels + " can't be empty");
       return false;
     }
-    else {
-      return true;
-    }
+    return true;
   },
 
   checkTextAreaCharLength: function () {
@@ -40,9 +38,7 @@ Validation.prototype = {
       obj.textArea.focus();
       return false;
     }
-    else {
-      return true;
-    }
+    return true;
   },
 
   checkNotificationStatus: function () {
@@ -53,9 +49,7 @@ Validation.prototype = {
       obj.notifications.focus();
       return false;
     }
-    else {
-      return true;
-    }
+    return true;
   },
 
   submitForm: function () {
