@@ -1,65 +1,78 @@
-var formValidation = function () {
+var Validation = function () {
   this.init();
 }
 
-formValidation.prototype = {
+Validation.prototype = {
   init: function () {
-    this.requiredFields = document.getElementsByClassName("required");
-    this.requiredTextArea = document.getElementById("about");
-    this.requiredCheckBox = document.getElementById("notification");
+    this.form = document.getElementById("user-form");
+    this.formFields = document.getElementsByClassName("required");
+    this.textArea = document.getElementById("about");
+    this.notifications = document.getElementById("notification");
+    this.maxCharLength = 50;
   },
 
-  checkFields: function () {
+  checkAllFields: function () {
     var obj = this,
-        check = true;
+        len = obj.formFields.length,
+        labels = new Array();
 
-    for(i=0; i<obj.requiredFields.length; i++) {
-      if(obj.requiredFields[i].value.trim().length == 0) {
-        alert("Please enter "+ obj.requiredFields[i].name);
-        obj.requiredFields[i].focus();
+    for(i = 0; i < len; i++) {
+      if(!obj.formFields[i].value.trim()) {
+        labels.push(obj.formFields[i].name);
+      }
+    }
+
+    if(labels.length > 0) {
+      alert(labels + " can't be empty");
+      return false;
+    }
+    else {
+      return true;
+    }
+  },
+
+  checkTextAreaCharLength: function () {
+    var obj = this,
+        charLength = obj.textArea.value.trim().length;
+
+    if(charLength < obj.maxCharLength) {
+      alert("Please enter atleast 50 characters to write about yourself.");
+      obj.textArea.focus();
+      return false;
+    }
+    else {
+      return true;
+    }
+  },
+
+  checkNotificationStatus: function () {
+    var obj = this;
+
+    if(!(obj.notifications.checked)) {
+      alert("Please click on checkbox to recieve notifications");
+      obj.notifications.focus();
+      return false;
+    }
+    else {
+      return true;
+    }
+  },
+
+  submitForm: function () {
+    var obj = this;
+
+    obj.form.onsubmit = function () {
+      if(obj.checkAllFields() && obj.checkTextAreaCharLength() && obj.checkNotificationStatus()) {
+        return true;
+      }
+      else {
         return false;
       }
     }
-    return check;
-  },
-
-  checkTextAreaCharLimit: function () {
-    var obj = this,
-        check = true;
-        currentCharLength = obj.requiredTextArea.value.trim().length;
-
-    if(currentCharLength < 50) {
-      alert("Please use atleast 50 character to write about yourself");
-      obj.requiredTextArea.focus();
-      check = false;
-    }
-    return check;
-  },
-
-  checkNotificationSelection: function () {
-    var obj = this,
-        check = true;
-    if(!(obj.requiredCheckBox.checked)) {
-      alert("Please click on checkbox to receive notifications");
-      check = false
-    }
-    return check;
-  },
-
-  checkAllValidations: function () {
-    var obj = this,
-        check = false;
-
-    check = obj.checkFields() && obj.checkTextAreaCharLimit() && obj.checkNotificationSelection();
-    return check;
   }
 }
 
 window.onload = function () {
-  var validationResult = new formValidation(),
-      form = document.getElementById("user-form");
-
-  form.onsubmit = function () {
-    return validationResult.checkAllValidations();
-  }
+  result = new Validation();
+  result.submitForm();
 }
