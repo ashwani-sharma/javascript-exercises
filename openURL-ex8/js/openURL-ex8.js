@@ -1,24 +1,26 @@
-function OpenPopupWindow () {
+function PopupWindow () {
   this.url = "";
 }
 
-OpenPopupWindow.prototype = {
-  getEnteredUrl: function () {
-    this.url = (prompt("Enter the url you want to open in saparate window") || "").trim();
+PopupWindow.prototype = {
+  init: function () {
+    this.getUrl();
+    this.open();
   },
 
-  openEnteredUrl: function () {
-    var obj = this;
+  getUrl: function () {
+    this.url = prompt("Enter the url you want to open in saparate window").trim() || "";
+    this.validate();
+  },
 
-    obj.getEnteredUrl();    
-    while (obj.url == "") {
+  validate: function () {
+    while (this.url == "") {
       alert("Can't be empty! Please enter URL again");
-      obj.getEnteredUrl();
+      this.getUrl();
     }
-    obj.openNewWindow();
   },
 
-  openNewWindow: function () {
+  open: function () {
     var newURL = "http://" + this.url,
         options = "height=450px, location=0, menubar=0, scrollbars=0, status=0, titlebar=0, toolbar=0, width=400px";
         
@@ -27,6 +29,5 @@ OpenPopupWindow.prototype = {
 }
 
 window.onload = function () {
-  var newPopupWindow = new OpenPopupWindow();
-  newPopupWindow.openEnteredUrl();
+  (new PopupWindow()).init();
 }
