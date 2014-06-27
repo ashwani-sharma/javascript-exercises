@@ -56,7 +56,7 @@ Validation.prototype = {
     var obj = this;
 
     obj.form.onsubmit = function () {
-      if(obj.checkAllFields() && obj.checkTextAreaCharLength() && obj.checkNotificationStatus()) {
+      if(obj.checkAllFields() & obj.checkTextAreaCharLength() & obj.checkNotificationStatus()) {
         return true;
       }
       else {
