@@ -1,0 +1,12 @@
+html > body *{ outline: none; }
+table.brdr { border:solid 1px #cacaca; border-collapse:collapse; width:600px; }
+table.brdr th { color:#c00000; border-left: solid 1px #cacaca; width: 190px; }
+table.brdr td { text-align:left; color:#666666; border-left: solid 1px #cacaca; border-top: solid 1px #cacaca; width: 190px }
+table.brdr th:first-child, table.brdr td:first-child { border-left: none; }
+table.brdr th, table.brdr td { border-collapse:collapse; padding:5px; font-family:Arial, Helvetica, sans-serif; font-size:12px; }
+table.brdr td input[type="text"] { width: 180px; }
+table.brdr td:last-child { text-align: center; }
+table.brdr td a { color: #0072ce; text-decoration: none; }
+table.brdr td a:hover { color: #f58220; }
+#addNewRow { width: 120px; border:solid 1px #cacaca; border-top: none; margin: 0; padding: 0; height: 30px; font-size: 12px; font-weight: bold; background: #e5e5e5; cursor: pointer; }
+#addNewRow:hover { color:#c00000; }
