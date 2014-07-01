@@ -1,6 +1,5 @@
-var numRegEx = /^([+]|[-])?\d+(\.[\d]+)?$/;
-
 var NumericValueValidation = function () {
+  this.numRegEx = /^([+]|[-])?\d+(\.[\d]+)?$/;
   this.form = document.getElementById("user-form");
   this.numberField = document.getElementById("number");
   this.resultField = document.getElementById("result");
@@ -9,14 +8,10 @@ var NumericValueValidation = function () {
 NumericValueValidation.prototype = {
   validateNumber: function () {
     var obj = this,
-        checkEnteredValue = numRegEx.test(this.numberField.value);
+        checkEnteredValue = obj.numRegEx.test(this.numberField.value);
 
     if(checkEnteredValue) {
       obj.resultField.value = "True";
-
-      setTimeout ( function() {
-        obj.form.submit();
-      }, 1000);
     }
     else {
       obj.resultField.value = "False";
@@ -25,13 +20,16 @@ NumericValueValidation.prototype = {
       obj.numberField.focus();
       return false;
     }
+    return true;
   },
 
   formFieldsValidation: function () {
     var obj = this;
     obj.form.onsubmit = function () {
       if(obj.validateNumber()) {
-        return true;
+        setTimeout ( function() {
+          obj.form.submit();
+        }, 1000);
       }
       return false;
     }

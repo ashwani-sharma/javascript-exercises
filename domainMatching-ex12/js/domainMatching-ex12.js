@@ -1,6 +1,5 @@
-var urlRegEx = /^(?:(?:http|https|ftp):\/\/)?(?:www\.)?(?:((?:[\w\d\_\-]+\.)*[\w\d\-\_]+)\.)?([\w\d\_\-]+\.[\w\d]{2,4})(?:\/[\w\d\-\_\?\=\&\#\.]+)*$/i;
-
 var domainMatch = function () {
+  this.urlRegEx = /^(?:(?:http|https|ftp):\/\/)?(?:www\.)?(?:((?:[\w\d\_\-]+\.)*[\w\d\-\_]+)\.)?([\w\d\_\-]+\.[\w\d]{2,4})(?:\/[\w\d\-\_\?\=\&\#\.]+)*$/i;
   this.form = document.getElementById("user-form");
   this.urlField = document.getElementById("url");
   this.urlField.focus();
@@ -11,7 +10,7 @@ domainMatch.prototype = {
     var obj = this;
     var enteredValue = this.urlField.value.trim();
 
-    return enteredValue.match(urlRegEx);
+    return enteredValue.match(obj.urlRegEx);
   },
 
   displayDomainInfo: function () {
