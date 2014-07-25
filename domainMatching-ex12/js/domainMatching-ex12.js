@@ -23,12 +23,11 @@ domainMatch.prototype = {
         return false;
       }
       
-      if(!RegExp.$1) {
-        alert("Domain: " + RegExp.$2);
+      var matchedDomainStr = "Domain: " + RegExp.$2;
+      if(RegExp.$1) {
+        matchedDomainStr += "\n Sub Domain: " + RegExp.$1;
       }
-      else {
-        alert("Domain: " + RegExp.$2 + "\n Sub Domain: " + RegExp.$1);
-      }
+      alert(matchedDomainStr);
     }
   }
 }
